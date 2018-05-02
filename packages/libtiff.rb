@@ -21,7 +21,7 @@ class Libtiff < Package
   })
 
   depends_on 'compressdoc' => :build
-  depends_on 'libjpeg'
+  depends_on 'libjpeg_turbo'
 
   def self.build
     system "./configure \
