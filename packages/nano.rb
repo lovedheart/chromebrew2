@@ -31,11 +31,24 @@ class Nano < Package
     
     system "mkdir -pv #{CREW_DEST_DIR}/home/chronos/user"
     system "touch #{CREW_DEST_DIR}/home/chronos/user/.nanorc"
-    puts "Create personal configuration file in /home/chronos/user/.nanorc".lightblue
-
   end
   
   def self.postinstall
     puts "Personal configuration file is located in /home/chronos/user/.nanorc".lightgreen
+    open('/home/chronos/user/.nanorc', 'w') { |f|
+      f << "set autoindent\n"
+      f << "set constantshow\n"
+      f << "set fill 72\n"
+      f << "set historylog\n"
+      f << "set multibuffer\n"
+      f << "set nohelp\n"
+      f << "set nowrap\n"
+      f << "set positionlog\n"
+      f << "set historylog\n"
+      f << "set quickblank\n"
+      f << "set regexp\n"
+      f << "set smooth\n"
+      f << "set suspend\n"
+      }
   end
 end
