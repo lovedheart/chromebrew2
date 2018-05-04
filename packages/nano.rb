@@ -12,8 +12,8 @@ class Nano < Package
      armv7l: 'https://dl.bintray.com/chromebrew2/chromebrew2/nano-2.9.5-chromeos-armv7l.tar.xz',
   })
   binary_sha256 ({
-    aarch64: '184dcddd59155f975e6af666871488313a82041b1edab034ba77e56a49134957',
-     armv7l: '184dcddd59155f975e6af666871488313a82041b1edab034ba77e56a49134957',
+    aarch64: '4f1dd5c2e5d50d706958003d4f6b522b79379ff884ad31a17a46bbc2a06a9f25',
+     armv7l: '4f1dd5c2e5d50d706958003d4f6b522b79379ff884ad31a17a46bbc2a06a9f25',
   })
 
   depends_on 'ncurses'
@@ -33,7 +33,7 @@ class Nano < Package
     system "touch #{CREW_DEST_DIR}/home/chronos/user/.nanorc"
     puts "Create personal configuration file in /home/chronos/user/.nanorc".lightblue
     Dir.chdir("#{CREW_DEST_DIR}/home/chronos/user") do
-      open('.nanorc', 'w') { |f|
+      target = open('.nanorc', 'w') { |f|
         f << "set autoindent\n"
         f << "set constantshow\n"
         f << "set fill 72\n"
@@ -48,6 +48,7 @@ class Nano < Package
         f << "set smooth\n"
         f << "set suspend\n"
       }
+      target.close
     end
   end
   
