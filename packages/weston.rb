@@ -7,6 +7,15 @@ class Weston < Package
   source_url 'https://github.com/wayland-project/weston/archive/4.0.0.tar.gz'
   source_sha256 '46b0178cd37b0bf7471c9af12c847c7b8728699ecd5c04ce79be77ea12c98512'
 
+  binary_url ({
+    aarch64: 'https://dl.bintray.com/chromebrew2/chromebrew2/weston-4.0.0-chromeos-armv7l.tar.xz',
+     armv7l: 'https://dl.bintray.com/chromebrew2/chromebrew2/weston-4.0.0-chromeos-armv7l.tar.xz',
+  })
+  binary_sha256 ({
+    aarch64: '5252debd2d7c5b896f733ae5bffa971d77f5ebcbf176ec2c11e3eb8bd3ab0456',
+     armv7l: '5252debd2d7c5b896f733ae5bffa971d77f5ebcbf176ec2c11e3eb8bd3ab0456',
+  })
+  
   depends_on 'harfbuzz'
   depends_on 'libxcursor'
   depends_on 'libinput'
