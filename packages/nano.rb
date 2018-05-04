@@ -12,8 +12,8 @@ class Nano < Package
      armv7l: 'https://dl.bintray.com/chromebrew2/chromebrew2/nano-2.9.5-chromeos-armv7l.tar.xz',
   })
   binary_sha256 ({
-    aarch64: '4f1dd5c2e5d50d706958003d4f6b522b79379ff884ad31a17a46bbc2a06a9f25',
-     armv7l: '4f1dd5c2e5d50d706958003d4f6b522b79379ff884ad31a17a46bbc2a06a9f25',
+    aarch64: 'db65eccb8a1045fa3fb26efc52e3d6a3762a8f58910df31e16bdd6f2473504a9',
+     armv7l: 'db65eccb8a1045fa3fb26efc52e3d6a3762a8f58910df31e16bdd6f2473504a9',
   })
 
   depends_on 'ncurses'
@@ -32,24 +32,7 @@ class Nano < Package
     system "mkdir -pv #{CREW_DEST_DIR}/home/chronos/user"
     system "touch #{CREW_DEST_DIR}/home/chronos/user/.nanorc"
     puts "Create personal configuration file in /home/chronos/user/.nanorc".lightblue
-    Dir.chdir("#{CREW_DEST_DIR}/home/chronos/user") do
-      target = open('.nanorc', 'w') { |f|
-        f << "set autoindent\n"
-        f << "set constantshow\n"
-        f << "set fill 72\n"
-        f << "set historylog\n"
-        f << "set multibuffer\n"
-        f << "set nohelp\n"
-        f << "set nowrap\n"
-        f << "set positionlog\n"
-        f << "set historylog\n"
-        f << "set quickblank\n"
-        f << "set regexp\n"
-        f << "set smooth\n"
-        f << "set suspend\n"
-      }
-      target.close
-    end
+
   end
   
   def self.postinstall
