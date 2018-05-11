@@ -18,6 +18,7 @@ class Libsdl < Package
 
   depends_on 'dbus'
   depends_on 'eudev'
+  depends_on 'alsa_lib'
 
   def self.build
     system './configure',
